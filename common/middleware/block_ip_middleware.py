@@ -36,3 +36,5 @@ class BlockIPMiddleware:
         self.requests[ip] = request_times
 
         return self.get_response(request)
+
+
