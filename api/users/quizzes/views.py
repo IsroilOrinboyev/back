@@ -1,39 +1,33 @@
 from django.db.models import Count
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, mixins
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 
 from apps.quiz.models.quiz import Quiz
 from apps.quiz.services.quiz_result import submit_quiz
-from common.serializers.quiz.serializer import QuizCreateSerializer, QuizUpdateSerializer, QuizListSerializer, \
+from common.serializers.quiz.serializer import QuizListSerializer, \
     QuizDetailSerializer, QuizSubmitSerializer
 
 
-class QuizViewSet(viewsets.ModelViewSet):
+class QuizViewSet(mixins.ListModelMixin,
+                  mixins.RetrieveModelMixin,
+                  mixins.CreateModelMixin,
+                  viewsets.GenericViewSet):
     queryset = Quiz.objects.select_related('lesson').annotate(questions_count=Count("questions"))
-    http_method_names = ['get', 'post', 'patch', 'delete']
+    http_method_names = ['get', 'post']
 
 
     def get_serializer_class(self):
-        if self.action == 'create':
-            return QuizCreateSerializer
 
-        elif self.action == 'retrieve':
+        if self.action == 'retrieve':
             return QuizDetailSerializer
-
-        elif self.action in ['update', 'partial_update']:
-            return QuizUpdateSerializer
 
         elif self.action == 'submit':
             return QuizSubmitSerializer
 
         return QuizListSerializer
 
-
-
-    def perform_create(self, serializer):
-        serializer.save(teacher=self.request.user)
 
 
     @action(detail=True, methods=["post"], url_path="submit")

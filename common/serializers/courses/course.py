@@ -3,13 +3,24 @@ from rest_framework import serializers
 from apps.course.models.course import Course
 from apps.course.models.lessons import Lessons
 from apps.course.models.units import CourseUnit
-from common.serializers.courses.units import CourseUnitCreateSerializer, CourseUnitUpdateSerializer
+from common.serializers.courses.units import CourseUnitCreateSerializer, CourseUnitUpdateSerializer, \
+    CourseUnitListSerializer
 
 
 class CourseUserListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
         fields = ["id", "title", "desc", "base_price", "discount_price"]
+
+
+
+class CourseDetailSerializer(serializers.ModelSerializer):
+    units = CourseUnitListSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Course
+        fields = ["id", "title", "desc", "base_price", "discount_price", "units"]
+
 
 
 

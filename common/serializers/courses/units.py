@@ -4,8 +4,25 @@ from apps.course.models.units import CourseUnit
 from common.serializers.courses.lessons import LessonCreateSerializer, LessonUpdateSerializer
 
 
-class CourseUnitCreateSerializer(serializers.ModelSerializer):
+
+
+class CourseUnitListSerializer(serializers.ModelSerializer):
+
     lessons = LessonCreateSerializer(many=True)
+
+    class Meta:
+        model = CourseUnit
+        fields = [
+            "id",
+            "title",
+            "desc",
+            "lessons",
+        ]
+
+
+
+class CourseUnitCreateSerializer(serializers.ModelSerializer):
+    lessons = CourseUnitListSerializer(many=True, read_only=True)
 
     class Meta:
         model = CourseUnit

@@ -27,7 +27,7 @@ from api.users.urls import urlpatterns as users_urlpatterns
 # # --- User API Swagger ---
 user_schema_view = get_schema_view(
     openapi.Info(
-        title="Save Meal User API",
+        title="Digital Academy User API",
         default_version='v1',
         description="Swagger documentation for User API endpoints.",
         contact=openapi.Contact(email="user@savemeal.uz"),
@@ -41,7 +41,7 @@ user_schema_view = get_schema_view(
 
 teachers_schema_view = get_schema_view(
     openapi.Info(
-        title="Save Meal User API",
+        title="Digital Academy User API",
         default_version='v1',
         description="Swagger documentation for User API endpoints.",
         contact=openapi.Contact(email="user@savemeal.uz"),
