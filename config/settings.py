@@ -29,7 +29,11 @@ USE_X_FORWARDED_PORT = True
 
 # ALLOWED_HOSTS = ['api.yoqubaxmedov.xyz', 'localhost', '127.0.0.1']
 
-ALLOWED_HOSTS = ['http://127.0.0.1:5173']
+ALLOWED_HOSTS = [
+    "api.digital-academy.live",
+    "127.0.0.1",
+    "localhost",
+]
 
 # Application definition
 
