@@ -1,63 +1,67 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-*.db
-*.sqlite3
-*.egg-info/
-dist/
-build/
-*.egg
+# IDE / editor
+.idea/
 
-# FastAPI
-instance/
-.venv/
+# dotenv
 .env
-.env.local
-*.local
+/logs
+logs
+# virtualenv
+.venv/
+venv/
+ENV/
+/.github
+
+# Ignore all migration files but keep __init__.py
+*/migrations/*
+!*/migrations/__init__.py
 
 # Django
-*.log
-*.pot
 *.pyc
-*.sqlite3
-media/
+__pycache__/
+db.sqlite3
+/media/
+/mediafiles
+mediafiles/
 staticfiles/
-*.log
-*.pot
-*.pyc
-*.coverage
-.coverage.*
-htmlcov/
-*.mo
-*.pyd
-*.db
-
-# Poetry
-poetry.lock
-pyproject.toml
-
-# IDEs and editors
-.vscode/
-.idea/
-*.swp
-
-backups/
-venv/
-venv
-logs/
-
-# Static files
 static/
-/static/
-**/static/
-migrations/
-migrations
-/migrations/
-celerybeat-schedule
-celerybeat-schedule.*
-celerybeat.pid
-celerybeat.pid.*
 
-*.DS_Store
+# Logs
+*.log
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Test / coverage
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.github
+# Jupyter
+*.ipynb_checkpoints
+eslatmalar.txt
+.z
