@@ -223,17 +223,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
-STATIC_ROOT = os.environ.get('STATIC_ROOT', os.path.join(BASE_DIR, 'staticfiles'))
-
-# STATIC_URL = '/static/'
-# STATIC_ROOT = '/var/www/startup_apps/kettumi/static/'
-#
+# STATIC_URL = 'static/'
 # MEDIA_URL = '/media/'
-# MEDIA_ROOT = '/var/www/startup_apps/kettumi/media/'
+# MEDIA_ROOT = BASE_DIR / 'media'
+#
+# STATIC_ROOT = os.environ.get('STATIC_ROOT', os.path.join(BASE_DIR, 'staticfiles'))
+
+STATIC_URL = '/static/'
+STATIC_ROOT = '/var/www/course_projects/back/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/var/www/course_projects/back/media/'
 
 
 # Default primary key field type
@@ -244,15 +244,15 @@ UNHANDLED_ERROR_LOG_FILE = BASE_DIR / "logs" / "unhandled_errors.json"
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://api.yoqubaxmedov.xyz',
-    'https://www.yoqubaxmedov.xyz',
+    'https://api.digital-academy.live',
+    'https://www.digital-academy.live',
 ]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://api.yoqubaxmedov.xyz",
-    "https://edueyesio.yoqubaxmedov.xyz",
+    "https://api.digital-academy.live",
+    "https://edueyesio.digital-academy.live",
 
 ]
 
